@@ -18,6 +18,7 @@ jobs:
       name: release
       url: https://pypi.org/p/yuta
     permissions:
+      contents: write
       id-token: write
     steps:
       - name: ⤵️ Check out code from GitHub
@@ -49,7 +50,7 @@ jobs:
         with:
           verbose: true
           print-hash: true
-      - name: Sign published artifacts
+      - name: ✍️ Sign published artifacts
         uses: sigstore/gh-action-sigstore-python@v2.1.0
         with:
           inputs: ./dist/*.tar.gz ./dist/*.whl
